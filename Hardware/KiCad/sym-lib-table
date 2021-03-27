@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name QuickFeather-Enviroment-Monitor)(type Legacy)(uri ${KIPRJMOD}/lib/QuickFeather-Enviroment-Monitor.lib)(options "")(descr ""))
+  (lib (name QuickFeather-Enviroment-Monitor-rescue)(type Legacy)(uri ${KIPRJMOD}/QuickFeather-Enviroment-Monitor-rescue.lib)(options "")(descr ""))
+)
