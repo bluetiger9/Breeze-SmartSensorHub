@@ -1,0 +1,45 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+**/output/
+
+# RTL build files
+**/rtl/build/
+**/rtl/Makefile.symbiflow
+**/rtl/*.h
+
+# toolchain installation
+arm_toolchain_install/
+fpga_toolchain_install/
+gcc-arm-none-eabi-*.tar.bz2
+Symbiflow_v*.gz.run

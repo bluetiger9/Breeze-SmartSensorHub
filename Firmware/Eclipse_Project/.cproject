@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161" name="Default" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.connection=unix:///var/run/docker.sock" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161.548415468" name="/" resourcePath="">
+						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.1154792390" name="Arm Cross GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base">
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.222166959" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.179638603" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" value="arm-none-eabi-" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.suffix.1461212051" name="Suffix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.suffix"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1547268608" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" value="gcc" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.835109896" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" value="g++" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.626115800" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" value="ar" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.1795770426" name="Hex/Bin converter" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy" value="objcopy" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.334141087" name="Listing generator" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump" value="objdump" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.724667294" name="Size command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.size" value="size" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.284556556" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make" value="make" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.943536179" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm" value="rm" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.useglobalpath.1651638199" name="Use global path" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.useglobalpath"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.path.2068193677" name="Path" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.path"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.744546851" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.821983964" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.175296474" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.family.1117032250" name="Arm family (-mcpu)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.family" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m3" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.architecture.1004110217" name="Architecture (-march)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.architecture"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.771989255" name="Instruction set" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.thumbinterwork.1714023145" name="Thumb interwork (-mthumb-interwork)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.thumbinterwork"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.endianness.1252576487" name="Endianness" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.endianness"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.853995190" name="Float ABI" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.1275058701" name="FPU Type" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess.928109273" name="Unaligned access" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcmse.223147603" name="TrustZone (-mcmse)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcmse"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.2125214502" name="AArch64 family" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crc.1219795691" name="Feature crc" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crc"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crypto.299961529" name="Feature crypto" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crypto"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.fp.359601574" name="Feature fp" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.fp"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.1199523108" name="Feature simd" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.247830923" name="Code model" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.strictalign.1390105075" name="Strict align (-mstrict-align)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.strictalign"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.target.other.251071531" name="Other target flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.target.other"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.472093701" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength.1311044129" name="Message length (-fmessage-length=0)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar.959320529" name="'char' is signed (-fsigned-char)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections.947260787" name="Function sections (-ffunction-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.datasections.1176244497" name="Data sections (-fdata-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.datasections"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nocommon.172263787" name="No common unitialized (-fno-common)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nocommon"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.noinlinefunctions.15399101" name="Do not inline functions (-fno-inline-functions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.noinlinefunctions"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.freestanding.358771570" name="Assume freestanding environment (-ffreestanding)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.freestanding"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nobuiltin.306330803" name="Disable builtin (-fno-builtin)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nobuiltin"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.spconstant.512098378" name="Single precision constants (-fsingle-precision-constant)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.spconstant"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.PIC.1223956769" name="Position independent code (-fPIC)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.PIC"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.lto.3329005" name="Link-time optimizer (-flto)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.lto"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants.1353081135" name="Disable loop invariant move (-fno-move-loop-invariants)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.other.1048431764" name="Other optimization flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.other"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.1813932328" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.id.2066284522" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.id" value="1287942917" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.syntaxonly.592767213" name="Check syntax only (-fsyntax-only)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.syntaxonly"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pedantic.1324446936" name="Pedantic (-pedantic)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pedantic"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pedanticerrors.1522021650" name="Pedantic warnings as errors (-pedantic-errors)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pedanticerrors"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.nowarn.1803188511" name="Inhibit all warnings (-w)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.nowarn"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.493198845" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.1209982786" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.1993707835" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.1786877816" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.702489590" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.1073908977" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.506785441" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.padded.1294186922" name="Warn if padding is included (-Wpadded)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.padded"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.1013865590" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.380366211" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1547527298" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.2065168036" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.toerrors.1589295230" name="Generate errors instead of warnings (-Werror)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.toerrors"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.other.175967894" name="Other warning flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.other"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.1908337476" name="Debug level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.688709882" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.prof.680524107" name="Generate prof information (-p)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.prof"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.gprof.1272022595" name="Generate gprof information (-pg)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.gprof"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.other.1864421513" name="Other debugging flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.other"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.showDevicesTab.1122284767" name="showDevicesTab" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.showDevicesTab"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.1435763834" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
+							<builder arguments="${workspace_loc:/${ProjName}}/../GCC_Project" autoBuildTarget="all" buildPath="${workspace_loc:/${ProjName}}/" cleanBuildTarget="clean" command="${workspace_loc:/${ProjName}}/eclipse_custom_build_command.sh" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="ilg.gnuarmeclipse.managedbuild.cross.builder.1834984256" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="false" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.1215248551" name="GNU Arm Cross Assembler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.771613538" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.971201048" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/BSP/quickfeather/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/FreeRTOS/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/HAL/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/fpga/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FatFs/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/MQTTSN/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/DSP/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/NN/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/DatablockManager/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Power/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLSRC/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/MQTTSN_SML/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FPGA/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/drivers/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/test/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/cli/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/cli/inc/cli}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/D2HProtocol/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/riff_file/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/riff_file/inc/riff_file}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FreeRTOS_FAT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLFS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SysFlash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/DSP/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLSPI/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Opus/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Opus/src/opus/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Utils/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Audio/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/Control/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/I2S/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/ADC/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/DatablockProcessor/inc}&quot;"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.148124156" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
+							</tool>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.472065847" name="GNU Arm Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.1043748887" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/BSP/quickfeather/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/FreeRTOS/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/HAL/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/fpga/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FatFs/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/MQTTSN/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/DSP/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/NN/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/DatablockManager/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Power/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLSRC/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/MQTTSN_SML/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FPGA/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/drivers/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/test/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/cli/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/cli/inc/cli}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/D2HProtocol/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/riff_file/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/riff_file/inc/riff_file}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FreeRTOS_FAT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLFS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SysFlash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/DSP/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLSPI/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Opus/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Opus/src/opus/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Utils/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Audio/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/Control/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/I2S/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/ADC/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/DatablockProcessor/inc}&quot;"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1889197131" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
+							</tool>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.1077177159" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths.150044735" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/BSP/quickfeather/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/FreeRTOS/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/HAL/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/fpga/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FatFs/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/MQTTSN/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/DSP/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/NN/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS_5/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/DatablockManager/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Power/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLSRC/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/MQTTSN_SML/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FPGA/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/drivers/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SensorFramework/test/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/cli/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/cli/inc/cli}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/D2HProtocol/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/riff_file/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/riff_file/inc/riff_file}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/FreeRTOS_FAT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLFS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/SysFlash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/DSP/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/QLSPI/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Opus/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Opus/src/opus/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Utils/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Libraries/Audio/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/Control/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/I2S/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/ADC/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/DatablockProcessor/inc}&quot;"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1784352759" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input"/>
+							</tool>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.303988426" name="GNU Arm Cross C Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.1262444911" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.1789582702" name="GNU Arm Cross C++ Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections.1662536189" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.input.302115207" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver.211964710" name="GNU Arm Cross Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver"/>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.createflash.599824566" name="GNU Arm Cross Create Flash Image" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.createflash"/>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.createlisting.372491282" name="GNU Arm Cross Create Listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.createlisting">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source.2100237792" name="Display source (--source|-S)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders.1793272648" name="Display all headers (--all-headers|-x)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle.1764465755" name="Demangle names (--demangle|-C)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers.1009081974" name="Display line numbers (--line-numbers|-l)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide.1380907273" name="Wide lines (--wide|-w)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.printsize.329691080" name="GNU Arm Cross Print Size" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.printsize">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format.1360594036" name="Size format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format" useByScannerDiscovery="false"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="Libraries/SensorFramework/drivers/M4/lsi2dh" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="ilg.gnumcueclipse.managedbuild.packs"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="QF SSI AI App.null.345855616" name="QF SSI AI App"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161;ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161.548415468;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.472065847;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1889197131">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161;ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161.548415468;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.1077177159;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1784352759">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Default">
+			<resource resourceType="PROJECT" workspacePath="/QF SSI AI App"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+</cproject>

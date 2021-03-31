@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161/PATH/delimiter=\:
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161/PATH/operation=replace
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161/PATH/value=/opt/qemu/bin\:/opt/crosstool-ng/bin\:/home/bluetiger/.local/bin\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/usr/games\:/usr/local/games\:/snap/bin\:/opt/Xilinx/Vivado/2020.1/bin/\:/opt/Xilinx/Vitis/2020.1/bin/\:/opt/Xilinx/PetaLinux/tools/common/petalinux/bin/\:/opt/Xilinx/PetaLinux/tools/xsct/gnu/microblaze/lin/bin/\:/usr/share/gcc-arm-none-eabi-10-2020-q4-major/bin/\:$PATH
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161/append=true
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.toolchain.base.113662161/appendContributed=true
