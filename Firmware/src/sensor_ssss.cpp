@@ -37,6 +37,7 @@
 #include "sml_recognition_run.h"
 
 #include "Adafruit_VEML6070.h"
+#include "SparkFun_AS3935.h"
 
 // When enabled, GPIO (configured in pincfg_table.c) is toggled whenever a
 // datablock is dispacthed for writing to the UART. Datablocks are dispatched
@@ -54,9 +55,28 @@ uint8_t sensor_rate_debug_gpio_val = 1;
 
 /* This section defines MACROs that may be user modified */
 
+// Accelerometer
 MC3635  qorc_ssi_accel;
 
+// UV
 Adafruit_VEML6070 uv;
+
+// Lightning
+#define AS3935_ADDR 0x03
+#define INDOOR 0x12
+#define OUTDOOR 0xE
+#define LIGHTNING_INT 0x08
+#define DISTURBER_INT 0x04
+#define NOISE_INT 0x01
+
+SparkFun_AS3935 lightning(AS3935_ADDR);
+
+int intVal = 0;
+int noise = 2; // Value between 1-7
+int disturber = 2; // Value between 1-10
+
+const int16_t LIGHTNING_NOISE = -1;
+const int16_t LIGHTNING_DISTURBER = -2;
 
 /* User modifiable sensor descriptor in JSON format */
 #if (SSI_SENSOR_SELECT_SSSS == 1)
@@ -71,7 +91,8 @@ const char json_string_sensor_config[] = \
 	"  \"AccelerometerX\":0,"\
 	"  \"AccelerometerY\":1,"\
 	"  \"AccelerometerZ\":2,"\
-	"  \"UV\":3"\
+	"  \"UV\":3,"\
+	"  \"Lightning\":4"\
    "}"\
 "}\r\n";
 /* END JSON descriptor for the sensor data */
@@ -90,7 +111,7 @@ void sensor_ssss_configure(void)
 
   /*--- BEGIN User modifiable section ---*/
 
-  // accelerometer begin
+  // Accelerometer begin
   qorc_ssi_accel.begin();
   qorc_ssi_accel.set_sample_rate(sensor_ssss_config.rate_hz);
   qorc_ssi_accel.set_sample_resolution(sensor_ssss_config.bit_depth);
@@ -98,6 +119,14 @@ void sensor_ssss_configure(void)
 
   // UV begin
   uv.begin(VEML6070_1_T);
+
+  // Lightning begin
+  if (lightning.begin()) {
+	  dbg_str("Lightning sensor initialized.\n");
+
+  } else {
+	  dbg_str("Failed to initialize lightning sensor!\n");
+  }
 
   /*--- END of User modifiable section ---*/
 
@@ -144,9 +173,40 @@ int  sensor_ssss_acquisition_buffer_ready()
 
     p_dest += 2;
 
-	//dbg_str("UVA light level: ");
-    //dbg_int(uv_value);
-	//dbg_str("\n");
+    // Lightning
+    //if(digitalRead(lightningInt) == HIGH){
+    int16_t lightning_value;
+	if (true) {
+		// Hardware has alerted us to an event, now we read the interrupt register
+		// to see exactly what it is.
+		intVal = lightning.readInterruptReg();
+		if (intVal == NOISE_INT) {
+			dbg_str("Noise.");
+			lightning_value = LIGHTNING_NOISE;
+			// Too much noise? Uncomment the code below, a higher number means better
+			// noise rejection.
+			//lightning.setNoiseLevel(setNoiseLevel);
+		} else if (intVal == DISTURBER_INT) {
+			dbg_str("Disturber.");
+			lightning_value = LIGHTNING_DISTURBER;
+			// Too many disturbers? Uncomment the code below, a higher number means better
+			// disturber rejection.
+			//lightning.watchdogThreshold(threshVal);
+		} else if (intVal == LIGHTNING_INT) {
+			dbg_str("Lightning Strike Detected!");
+			// Lightning! Now how far away is it? Distance estimation takes into
+			// account any previously seen events in the last 15 seconds.
+			uint16_t distance = lightning.distanceToStorm();
+			dbg_str("Approximately: ");
+			dbg_int(distance);
+			lightning_value = distance;
+			dbg_str("km away!\n");
+		}
+
+	    int16_t *p_lightning_data = (int16_t *)p_dest;
+	    *p_lightning_data = lightning_value;
+	    p_dest += 2;
+	}
 
     /* Read data from other sensors */
     int bytes_to_read = SENSOR_SSSS_CHANNELS_PER_SAMPLE * (SENSOR_SSSS_BIT_DEPTH/8) ;

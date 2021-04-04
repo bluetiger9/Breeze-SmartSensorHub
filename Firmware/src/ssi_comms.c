@@ -64,8 +64,8 @@ void ssiTaskHandler(void* pParameter)
         rx_avail = uart_rx_available(UART_ID_SSI);
         if (rx_avail > 0 && rx_buf_pos <= SSI_RXBUF_SIZE) {
         	uart_rx_raw_buf(UART_ID_SSI, ssi_rxbuf + rx_buf_pos, rx_avail);
-        	dbg_str("UART RCV:\n");
-        //	rx_buf_pos += rx_avail;
+        	rx_buf_pos += rx_avail;
+        	//dbg_str("UART RCV:\n");
         //	for (int i = 0; i < rx_buf_pos; ++i) {
         //		dbg_ch(ssi_rxbuf[i]);
         //	}

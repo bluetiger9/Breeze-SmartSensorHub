@@ -351,6 +351,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/inc/RtosTask.h</locationURI>
 		</link>
 		<link>
+			<name>App/inc/SparkFun_AS3935.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/SparkFun_AS3935.h</locationURI>
+		</link>
+		<link>
 			<name>App/inc/Wire.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/inc/Wire.h</locationURI>
@@ -439,6 +444,11 @@
 			<name>App/src/Adafruit_VEML6070.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/src/Adafruit_VEML6070.cpp</locationURI>
+		</link>
+		<link>
+			<name>App/src/SparkFun_AS3935.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/src/SparkFun_AS3935.cpp</locationURI>
 		</link>
 		<link>
 			<name>App/src/Wire.cpp</name>
