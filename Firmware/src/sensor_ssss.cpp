@@ -36,6 +36,8 @@
 #include "mc3635_wire.h"
 #include "sml_recognition_run.h"
 
+#include "Adafruit_VEML6070.h"
+
 // When enabled, GPIO (configured in pincfg_table.c) is toggled whenever a
 // datablock is dispacthed for writing to the UART. Datablocks are dispatched
 // every (SENSOR_SSSS_LATENCY) ms
@@ -54,6 +56,8 @@ uint8_t sensor_rate_debug_gpio_val = 1;
 
 MC3635  qorc_ssi_accel;
 
+Adafruit_VEML6070 uv;
+
 /* User modifiable sensor descriptor in JSON format */
 #if (SSI_SENSOR_SELECT_SSSS == 1)
 
@@ -62,13 +66,14 @@ MC3635  qorc_ssi_accel;
 const char json_string_sensor_config[] = \
 "{"\
    "\"sample_rate\":100,"\
-   "\"samples_per_packet\":6,"\
+   "\"samples_per_packet\":8,"\
    "\"column_location\":{"\
-	"  \"AccelerometerX\":0,"
-	"  \"AccelerometerY\":1,"
-	"  \"AccelerometerZ\":2"
+	"  \"AccelerometerX\":0,"\
+	"  \"AccelerometerY\":1,"\
+	"  \"AccelerometerZ\":2,"\
+	"  \"UV\":3"\
    "}"\
-"}\r\n" ;
+"}\r\n";
 /* END JSON descriptor for the sensor data */
 #endif /* SSI_SENSOR_SELECT_SSSS */
 
@@ -84,10 +89,15 @@ void sensor_ssss_configure(void)
   static int sensor_ssss_configured = false;
 
   /*--- BEGIN User modifiable section ---*/
+
+  // accelerometer begin
   qorc_ssi_accel.begin();
   qorc_ssi_accel.set_sample_rate(sensor_ssss_config.rate_hz);
   qorc_ssi_accel.set_sample_resolution(sensor_ssss_config.bit_depth);
   qorc_ssi_accel.set_mode(MC3635_MODE_CWAKE);
+
+  // UV begin
+  uv.begin(VEML6070_1_T);
 
   /*--- END of User modifiable section ---*/
 
@@ -113,6 +123,8 @@ int  sensor_ssss_acquisition_buffer_ready()
     /* Read 1 sample per channel, Fill the sample data to p_dest buffer */
 
     /*--- BEGIN User modifiable section ---*/
+
+    // Accelerometer
     xyz_t accel_data = qorc_ssi_accel.read();  /* Read accelerometer data from MC3635 */
 
     /* Fill this accelerometer data into the current data block */
@@ -123,6 +135,18 @@ int  sensor_ssss_acquisition_buffer_ready()
     *p_accel_data++ = accel_data.z;
 
     p_dest += 6; // advance datablock pointer to retrieve and store next sensor data
+
+    // UV
+    int16_t uv_value = uv.readUV(false);
+
+    int16_t *p_uv_data = (int16_t *)p_dest;
+    *p_uv_data++ = uv_value;
+
+    p_dest += 2;
+
+	//dbg_str("UVA light level: ");
+    //dbg_int(uv_value);
+	//dbg_str("\n");
 
     /* Read data from other sensors */
     int bytes_to_read = SENSOR_SSSS_CHANNELS_PER_SAMPLE * (SENSOR_SSSS_BIT_DEPTH/8) ;

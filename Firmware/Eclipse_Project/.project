@@ -316,6 +316,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/GCC_Project/quickfeather.ld</locationURI>
 		</link>
 		<link>
+			<name>App/inc/Adafruit_VEML6070.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/Adafruit_VEML6070.h</locationURI>
+		</link>
+		<link>
 			<name>App/inc/Bootconfig.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/inc/Bootconfig.h</locationURI>
@@ -349,6 +354,11 @@
 			<name>App/inc/Wire.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/inc/Wire.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/delay.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/delay.h</locationURI>
 		</link>
 		<link>
 			<name>App/inc/firmware_raw_image.h</name>
@@ -426,6 +436,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>App/src/Adafruit_VEML6070.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/src/Adafruit_VEML6070.cpp</locationURI>
+		</link>
+		<link>
 			<name>App/src/Wire.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/src/Wire.cpp</locationURI>
@@ -439,6 +454,11 @@
 			<name>App/src/c_lib_retarget.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/src/c_lib_retarget.c</locationURI>
+		</link>
+		<link>
+			<name>App/src/delay.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/src/delay.c</locationURI>
 		</link>
 		<link>
 			<name>App/src/exceptions.c</name>

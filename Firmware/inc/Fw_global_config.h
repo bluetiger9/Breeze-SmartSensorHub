@@ -57,14 +57,18 @@
 // #define UART_ID_SEMBUF       5   // Write data to semihost and buffer
 // #define UART_ID_USBSERIAL    6   // Write data to USB serial port
 //#define DEBUG_UART  UART_ID_BUFFER  // Write data to USB serial port
-#define DEBUG_UART  UART_ID_USBSERIAL
+//#define DEBUG_UART  UART_ID_USBSERIAL
+#define DEBUG_UART  UART_ID_SEMIHOST
 
-#define USE_SEMIHOSTING     0       // 1 => use semihosting, 0 => use UART_ID_HW
+//#define USE_SEMIHOSTING     0       // 1 => use semihosting, 0 => use UART_ID_HW
+#define USE_SEMIHOSTING     1      // 1 => use semihosting, 0 => use UART_ID_HW
 
 #define SIZEOF_DBGBUFFER    2048    // Number of characters in circular debug buffer
 
 /* Select the UART ID for Simple Streaming Interface */
-#define UART_ID_SSI             (UART_ID_HW)
+//#define UART_ID_SSI             (UART_ID_HW)
+#define UART_ID_SSI  (UART_ID_USBSERIAL)
+
 
 // Toggle GPIO whenever a datablock buffer is dispatched to the UART
 // Datablocks are dispatched every (SENSOR_SSSS_LATENCY) ms. Default is 20ms or 50Hz

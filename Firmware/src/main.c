@@ -49,11 +49,10 @@
 #include "kb.h"
 #include "sensor_audio_config.h"
 #include "sensor_audio_process.h"
+
 extern const struct cli_cmd_entry my_main_menu[];
 
-
 const char *SOFTWARE_VERSION_STR;
-
 
 /*
  * Global variable definition
@@ -73,7 +72,7 @@ static const fw_global_config_t fw_global_config_vars =
 #if 1
 static I2C_Config i2c0config =
 {
-  .eI2CFreq = I2C_400KHZ,    // 400kHz
+  .eI2CFreq = I2C_100KHZ,    // 400kHz
   .eI2CInt = I2C_DISABLE,    // enabled interrupt
   .ucI2Cn = 0
 };

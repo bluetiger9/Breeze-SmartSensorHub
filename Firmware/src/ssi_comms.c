@@ -31,7 +31,7 @@
 
 #define STACK_SIZE_TASK_SSI (256)
 #define PRIORITY_TASK_SSI (PRIORITY_NORMAL)
-#define SSI_RXBUF_SIZE (32)
+#define SSI_RXBUF_SIZE (128)
 
 xTaskHandle xHandleTaskSSI;
 bool        is_ssi_connected          = false;
@@ -46,6 +46,7 @@ void ssiTaskHandler(void* pParameter)
     int  count    = 0;
     int  json_len = 0;
     int  rx_avail = 0;
+    int  rx_buf_pos = 0;
     char ssi_rxbuf[SSI_RXBUF_SIZE];
 
     assert(SSI_RXBUF_SIZE >= ssi_connect_string_len);
@@ -55,17 +56,31 @@ void ssiTaskHandler(void* pParameter)
     while (1)
     {
         // Send the JSON string
-        vTaskDelay(1000);
+        vTaskDelay(3000);
         if (is_ssi_connected == false)
         {
             uart_tx_raw_buf(UART_ID_SSI, json_string_sensor_config, json_len);
         }
         rx_avail = uart_rx_available(UART_ID_SSI);
-        if (rx_avail == ssi_connect_string_len)
-        {
-            uart_rx_raw_buf(UART_ID_SSI, ssi_rxbuf, ssi_connect_string_len);
-            if (strncmp(ssi_rxbuf, ssi_connect_string, ssi_connect_string_len) == 0)
+        if (rx_avail > 0 && rx_buf_pos <= SSI_RXBUF_SIZE) {
+        	uart_rx_raw_buf(UART_ID_SSI, ssi_rxbuf + rx_buf_pos, rx_avail);
+        	dbg_str("UART RCV:\n");
+        //	rx_buf_pos += rx_avail;
+        //	for (int i = 0; i < rx_buf_pos; ++i) {
+        //		dbg_ch(ssi_rxbuf[i]);
+        //	}
+		//	dbg_str("\n");
+        //}
+        //if (rx_avail == ssi_connect_string_len)
+        //{
+        //    uart_rx_raw_buf(UART_ID_SSI, ssi_rxbuf, ssi_connect_string_len);
+			for (int  t = 0; t <= rx_buf_pos - ssi_connect_string_len; ++t) {
+
+            if (strncmp(ssi_rxbuf + t, ssi_connect_string, ssi_connect_string_len) == 0)
             {
+	        	dbg_str("connect:\n");
+	        	rx_buf_pos = 0;
+
                 is_ssi_connected = true;
 #if (SSI_SENSOR_SELECT_SSSS)
                 sensor_ssss_startstop(1);
@@ -74,7 +89,9 @@ void ssiTaskHandler(void* pParameter)
                 sensor_audio_add();
                 sensor_audio_startstop(1);
 #endif
+                break;
             }
+			}
         }
         else if (rx_avail == ssi_disconnect_string_len)
         {
