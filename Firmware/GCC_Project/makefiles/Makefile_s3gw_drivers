@@ -1,5 +1,6 @@
 #S3GW_DRIVERS_SRCS:=$(wildcard $(S3GW_DRIVERS_DIR)/*.c )
 S3GW_DRIVERS_SRCS:=$(S3GW_DRIVERS_DIR)/eoss3_hal_fpga_usbserial.c
+S3GW_DRIVERS_SRCS:=$(S3GW_DRIVERS_DIR)/eoss3_hal_fpga_gpio.c
 
 filters=
 #  eoss3_hal_audio.c eoss3_hal_ffe.c eoss3_hal_fpga_adc.c eoss3_hal_i2s_master_assp.c 

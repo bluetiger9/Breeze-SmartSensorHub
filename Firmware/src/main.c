@@ -33,7 +33,14 @@
 /*    Include the generic headers required for QORC */
 #include "eoss3_hal_gpio.h"
 #include "eoss3_hal_rtc.h"
+#if (FEATURE_USBSERIAL == 1)
 #include "eoss3_hal_fpga_usbserial.h"
+#endif
+#if (FEATURE_FPGA_GPIO == 1)
+//#include "eoss3_hal_fpga_gpio.h"
+#include "hal_fpga_gpioctrl.h"
+#include "fpga_gpio_top_bit.h"
+#endif
 #include "eoss3_hal_i2c.h"
 #include "eoss3_hal_timer.h"
 #include "ql_time.h"
@@ -49,6 +56,7 @@
 #include "kb.h"
 #include "sensor_audio_config.h"
 #include "sensor_audio_process.h"
+#include "power.h"
 
 extern const struct cli_cmd_entry my_main_menu[];
 
@@ -94,8 +102,19 @@ int main(void)
     S3x_Clk_Enable(S3X_CFG_DMA_A1_CLK);
     load_fpga(axFPGABitStream_length,axFPGABitStream);
     // Use 0x6141 as USB serial product ID (USB PID)
-    HAL_usbserial_init2(false, true, 0x6141);        // Start USB serial not using interrupts
-    for (int i = 0; i != 4000000; i++) ;   // Give it time to enumerate
+	//HAL_usbserial_init2(false, true, 0x6141);        // Start USB serial not using interrupts
+    //for (int i = 0; i != 4000000; i++) ;   // Give it time to enumerate
+#endif
+#if (FEATURE_FPGA_GPIO == 1)
+    S3x_Clk_Disable(S3X_FB_21_CLK);
+    S3x_Clk_Disable(S3X_FB_16_CLK);
+    S3x_Clk_Enable(S3X_A1_CLK);
+    S3x_Clk_Enable(S3X_CFG_DMA_A1_CLK);
+    load_fpga(sizeof(axFPGABitStream_GPIO),axFPGABitStream_GPIO);
+    S3x_Clk_Set_Rate(S3X_FB_21_CLK, 12000*1000);
+    S3x_Clk_Set_Rate(S3X_FB_16_CLK, 12000*1000);
+    S3x_Clk_Enable(S3X_FB_21_CLK);
+    S3x_Clk_Enable(S3X_FB_16_CLK);
 #endif
     dbg_str("\n\n");
     dbg_str( "##########################\n");
@@ -163,5 +182,6 @@ void SystemInit(void)
 {
 
 }
+
 
 

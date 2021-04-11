@@ -46,7 +46,8 @@
 #define uartHandlerUpdate(id,x)
 
 #define FEATURE_FPGA_UART   0       // FPGA UART not present
-#define FEATURE_USBSERIAL   1       // USBSERIAL port is present
+#define FEATURE_USBSERIAL   0       // USBSERIAL port is present
+#define FEATURE_FPGA_GPIO   1       // FPGA_GPIO
 
 // Options for debug output -- use to set DEBUG_UART below
 // #define UART_ID_DISABLED     0   // /dev/null */
@@ -66,13 +67,14 @@
 #define SIZEOF_DBGBUFFER    2048    // Number of characters in circular debug buffer
 
 /* Select the UART ID for Simple Streaming Interface */
-//#define UART_ID_SSI             (UART_ID_HW)
-#define UART_ID_SSI  (UART_ID_USBSERIAL)
+#define UART_ID_SSI             (UART_ID_HW)
+//#define UART_ID_SSI  (UART_ID_USBSERIAL)
 
 
 // Toggle GPIO whenever a datablock buffer is dispatched to the UART
 // Datablocks are dispatched every (SENSOR_SSSS_LATENCY) ms. Default is 20ms or 50Hz
-#define SENSOR_SSSS_RATE_DEBUG_GPIO      (1)    // Set to 1 to toggle configured GPIO
+//#define SENSOR_SSSS_RATE_DEBUG_GPIO      (1)    // Set to 1 to toggle configured GPIO
+#define SENSOR_SSSS_RATE_DEBUG_GPIO      (0)    // Set to 1 to toggle configured GPIO
 
 /* Setting this MACRO to 1 enables sending a known sawtooth pattern as live-stream
  * sensor data, this setting is intended for verifying communication interface
@@ -197,5 +199,14 @@ typedef struct st_fw_global_config
 	int sensor_ssss_livestream_enabled;
 	int sensor_ssss_recog_enabled;
 } fw_global_config_t;
+
+#define GPIO_CS_UV (GPIO_3)
+#define GPIO_CS_AQ (GPIO_2)
+#define GPIO_CS_COM (GPIO_0)
+#define GPIO_PWR_UV (GPIO_4)
+#define GPIO_PWR_AQ (GPIO_7)
+
+#define FGPIO_PWR_LH (12)
+#define FGPIO_PWR_COM (2)
 
 #endif

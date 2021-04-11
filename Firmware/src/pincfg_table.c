@@ -98,16 +98,16 @@ PadConfig pincfg_table[] =
   },
 #endif
   // LEDS
-   { // setup blue LED
-    .ucPin = PAD_18,
-    .ucFunc = PAD18_FUNC_SEL_GPIO_4,
-    .ucCtrl = PAD_CTRL_SRC_A0,
-    .ucMode = PAD_MODE_OUTPUT_EN,
-    .ucPull = PAD_NOPULL,
-    .ucDrv = PAD_DRV_STRENGTH_4MA,
-    .ucSpeed = PAD_SLEW_RATE_SLOW,
-    .ucSmtTrg = PAD_SMT_TRIG_DIS,
-  },
+//   { // setup blue LED
+//    .ucPin = PAD_18,
+//    .ucFunc = PAD18_FUNC_SEL_GPIO_4,
+//    .ucCtrl = PAD_CTRL_SRC_A0,
+//    .ucMode = PAD_MODE_OUTPUT_EN,
+//    .ucPull = PAD_NOPULL,
+//    .ucDrv = PAD_DRV_STRENGTH_4MA,
+//    .ucSpeed = PAD_SLEW_RATE_SLOW,
+//    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+//  },
   { // setup green LED
     .ucPin = PAD_21,
     .ucFunc = PAD21_FUNC_SEL_GPIO_5,
@@ -129,16 +129,16 @@ PadConfig pincfg_table[] =
     .ucSmtTrg = PAD_SMT_TRIG_DIS,
   },
   
-   {
-    // Pad6 is the user button
-    .ucPin = PAD_6,
-    .ucFunc = PAD6_FUNC_SEL_GPIO_0,
-    .ucMode = PAD_MODE_INPUT_EN,
-    .ucPull = PAD_PULLUP,
-    .ucDrv = PAD_DRV_STRENGTH_4MA,
-    .ucSpeed = PAD_SLEW_RATE_SLOW,
-    .ucSmtTrg = PAD_SMT_TRIG_DIS
-  },
+//   {
+//    // Pad6 is the user button
+//    .ucPin = PAD_6,
+//    .ucFunc = PAD6_FUNC_SEL_GPIO_0,
+//    .ucMode = PAD_MODE_INPUT_EN,
+//    .ucPull = PAD_PULLUP,
+//    .ucDrv = PAD_DRV_STRENGTH_4MA,
+//    .ucSpeed = PAD_SLEW_RATE_SLOW,
+//    .ucSmtTrg = PAD_SMT_TRIG_DIS
+//  },
 
   
    { // Pad 33 -- Test clock
@@ -234,7 +234,81 @@ PadConfig pincfg_table[] =
     .ucSpeed = PAD_SLEW_RATE_SLOW,
     .ucSmtTrg = PAD_SMT_TRIG_DIS,
   },
+#else
+  { // IO_11 / GPIO(2) - CS_AQ
+    .ucPin = PAD_11,
+    .ucFunc = PAD11_FUNC_SEL_GPIO_2,
+    .ucCtrl = PAD_CTRL_SRC_A0,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
 #endif
+  { // IO_30 / GPIO(3) - CS_UV
+    .ucPin = PAD_30,
+    .ucFunc = PAD30_FUNC_SEL_GPIO_3,
+    .ucCtrl = PAD_CTRL_SRC_A0,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
+  { // IO_24 / GPIO(0) - CS_COM
+    .ucPin = PAD_24,
+    .ucFunc = PAD24_FUNC_SEL_GPIO_0,
+    .ucCtrl = PAD_CTRL_SRC_A0,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
+  { // IO_23 / GPIO(7) - CS_COM (??? - hangging)
+    .ucPin = PAD_23,
+    .ucFunc = PAD23_FUNC_SEL_GPIO_7,
+    .ucCtrl = PAD_CTRL_SRC_A0,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
+  { // IO_24 / GPIO(0) - CS_COM
+    .ucPin = PAD_31,
+    .ucFunc = PAD31_FUNC_SEL_GPIO_4,
+    .ucCtrl = PAD_CTRL_SRC_A0,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
+
+  { // IO_2 / FBIO(2) - PWR_COM
+    .ucPin = PAD_2,
+    .ucFunc = PAD2_FUNC_SEL_FBIO_2,
+    .ucCtrl = PAD_CTRL_SRC_FPGA,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
+
+  { // IO_12 / FBIO(12) - PWR_COM
+    .ucPin = PAD_12,
+    .ucFunc = PAD12_FUNC_SEL_FBIO_12,
+    .ucCtrl = PAD_CTRL_SRC_FPGA,
+    .ucMode = PAD_MODE_OUTPUT_EN,
+    .ucPull = PAD_NOPULL,
+    .ucDrv = PAD_DRV_STRENGTH_4MA,
+    .ucSpeed = PAD_SLEW_RATE_SLOW,
+    .ucSmtTrg = PAD_SMT_TRIG_DIS,
+  },
+
 #if (AUDIO_DRIVER == 1) && (PDM_PAD_28_29 == 1)
   { // Pad 28 -- PDM DATA
     .ucPin = PAD_28,

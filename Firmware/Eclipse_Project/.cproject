@@ -132,6 +132,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/I2S/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/ADC/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/DatablockProcessor/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/s3-gateware/}&quot;"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.148124156" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
 							</tool>
@@ -174,6 +175,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/I2S/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/ADC/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/DatablockProcessor/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/freertos_gateware/inc/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/s3-gateware/}&quot;"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1889197131" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
 							</tool>
@@ -216,6 +219,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/I2S/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/ADC/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/Tasks/DatablockProcessor/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/freertos_gateware/inc/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/QF SSI AI App/s3-gateware/}&quot;"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1784352759" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input"/>
 							</tool>
