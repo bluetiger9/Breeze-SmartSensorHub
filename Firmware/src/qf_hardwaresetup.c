@@ -100,7 +100,8 @@ static void uart_setup()
     memset( (void *)&(uartObj), 0, sizeof(uartObj) );
 
     uart_id = UART_ID_HW;
-	brate = BAUD_460800;
+	//brate = BAUD_460800;
+    brate = BAUD_9600;
 	uartObj.baud = brate;
 	uartObj.wl = WORDLEN_8B;
 	uartObj.parity = PARITY_NONE;

@@ -38,6 +38,7 @@
 
 #include "Adafruit_VEML6070.h"
 #include "SparkFun_AS3935.h"
+#include "pms7003.h"
 
 // When enabled, GPIO (configured in pincfg_table.c) is toggled whenever a
 // datablock is dispacthed for writing to the UART. Datablocks are dispatched
@@ -78,6 +79,8 @@ int disturber = 2; // Value between 1-10
 const int16_t LIGHTNING_NOISE = -1;
 const int16_t LIGHTNING_DISTURBER = -2;
 
+DATA lastPmsData;
+
 /* User modifiable sensor descriptor in JSON format */
 #if (SSI_SENSOR_SELECT_SSSS == 1)
 
@@ -86,13 +89,16 @@ const int16_t LIGHTNING_DISTURBER = -2;
 const char json_string_sensor_config[] = \
 "{"\
    "\"sample_rate\":100,"\
-   "\"samples_per_packet\":8,"\
+   "\"samples_per_packet\":16,"\
    "\"column_location\":{"\
 	"  \"AccelerometerX\":0,"\
 	"  \"AccelerometerY\":1,"\
 	"  \"AccelerometerZ\":2,"\
 	"  \"UV\":3,"\
-	"  \"Lightning\":4"\
+	"  \"Lightning\":4,"\
+	"  \"PM1\":5,"\
+	"  \"PM2.5\":6,"\
+	"  \"PM10\":7"\
    "}"\
 "}\r\n";
 /* END JSON descriptor for the sensor data */
@@ -127,6 +133,9 @@ void sensor_ssss_configure(void)
   } else {
 	  dbg_str("Failed to initialize lightning sensor!\n");
   }
+
+  // Air Quality
+  pms_init(UART_ID_PMS7003);
 
   /*--- END of User modifiable section ---*/
 
@@ -207,6 +216,29 @@ int  sensor_ssss_acquisition_buffer_ready()
 	    *p_lightning_data = lightning_value;
 	    p_dest += 2;
 	}
+
+	// Air Quality
+
+	// check every time to see if there is data
+	bool pms_readed = pms_readData();
+	if (pms_read(&lastPmsData)) {
+		//last_pm_reading = now;
+		lastPmsData = pms_getData();
+	}
+
+	/* Fill this air quality data into the current data block */
+	int16_t *p_air_quality_data = (int16_t*) p_dest;
+
+	*p_air_quality_data++ = lastPmsData.PM_SP_UG_1_0;
+	*p_air_quality_data++ = lastPmsData.PM_SP_UG_2_5;
+	*p_air_quality_data++ = lastPmsData.PM_SP_UG_10_0;
+	if (pms_readed) {
+		dbg_str_int("pm1.0", lastPmsData.PM_SP_UG_1_0);
+		dbg_str_int("pm2.5", lastPmsData.PM_SP_UG_2_5);
+		dbg_str_int("pm10.0", lastPmsData.PM_SP_UG_10_0);
+	}
+
+	p_dest += 6;
 
     /* Read data from other sensors */
     int bytes_to_read = SENSOR_SSSS_CHANNELS_PER_SAMPLE * (SENSOR_SSSS_BIT_DEPTH/8) ;

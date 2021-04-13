@@ -137,6 +137,12 @@ int main(void)
     /* Select for PAD 38 */
     IO_MUX->PDM_CLKIN_SEL = 0x01;
 #endif
+
+    power(AQ, true);
+    power(UV, true);
+    power(LH, true);
+    power(COM, true);
+
     HAL_I2C_Init(i2c0config);
 
     kb_model_init(); /* initialize the knowledgepack */

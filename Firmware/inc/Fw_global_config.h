@@ -26,6 +26,7 @@
 
 #include <stdint.h>
 #include "sec_debug.h"
+//#include "eoss3_hal_uart.h"
 
 #define ENABLE_VOICE_SOLUTION   1
 #define PDM2DEC_FACT  48
@@ -51,7 +52,7 @@
 
 // Options for debug output -- use to set DEBUG_UART below
 // #define UART_ID_DISABLED     0   // /dev/null */
-// #define UART_ID_HW           1   // the hard UART on the S3
+#define UART_ID_HW           1   // the hard UART on the S3
 // #define UART_ID_SEMIHOST     2   // Write debug data to semihost
 // #define UART_ID_FPGA         3   // second uart if part of FPGA
 // #define UART_ID_BUFFER       4   // Write data to buffer
@@ -70,6 +71,7 @@
 #define UART_ID_SSI             (UART_ID_HW)
 //#define UART_ID_SSI  (UART_ID_USBSERIAL)
 
+#define UART_ID_PMS7003         (UART_ID_HW)
 
 // Toggle GPIO whenever a datablock buffer is dispatched to the UART
 // Datablocks are dispatched every (SENSOR_SSSS_LATENCY) ms. Default is 20ms or 50Hz

@@ -71,6 +71,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>App/inc</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
 			<name>App/knowledgepack</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -371,11 +376,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/GCC_Project/config.mk</locationURI>
 		</link>
 		<link>
-			<name>App/GCC_Project/inc</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
 			<name>App/GCC_Project/makefiles</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -389,6 +389,126 @@
 			<name>App/GCC_Project/quickfeather.ld</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/GCC_Project/quickfeather.ld</locationURI>
+		</link>
+		<link>
+			<name>App/inc/Adafruit_VEML6070.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/Adafruit_VEML6070.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/Bootconfig.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/Bootconfig.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/FreeRTOSConfig.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/FreeRTOSConfig.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/FreeRTOSFATConfig.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/FreeRTOSFATConfig.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/Fw_global_config.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/Fw_global_config.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/Fw_task.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/Fw_task.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/RtosTask.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/RtosTask.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/SparkFun_AS3935.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/SparkFun_AS3935.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/Wire.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/Wire.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/delay.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/delay.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/firmware_raw_image.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/firmware_raw_image.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/fpga_gpio_top_bit.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/fpga_gpio_top_bit.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/h2d_protocol.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/h2d_protocol.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/hal_fpga_gpioctrl.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/hal_fpga_gpioctrl.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/pms7003.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/pms7003.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/power.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/power.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/ql_hostTask.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/ql_hostTask.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/s3_host_proto_defs.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/s3_host_proto_defs.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/s3x_pwrcfg.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/s3x_pwrcfg.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/sec_debug.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/sec_debug.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/sensor_generic.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/sensor_generic.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/sensor_ssss.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/sensor_ssss.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/ssi_comms.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/ssi_comms.h</locationURI>
+		</link>
+		<link>
+			<name>App/inc/ww_metadata.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/ww_metadata.h</locationURI>
 		</link>
 		<link>
 			<name>App/knowledgepack/inc</name>
@@ -474,6 +594,11 @@
 			<name>App/src/pincfg_table.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/src/pincfg_table.c</locationURI>
+		</link>
+		<link>
+			<name>App/src/pms7003.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/src/pms7003.c</locationURI>
 		</link>
 		<link>
 			<name>App/src/power.c</name>
@@ -1484,121 +1609,6 @@
 			<name>s3-gateware/usb2serial/usb2serial.bin</name>
 			<type>1</type>
 			<locationURI>PARENT-3-PROJECT_LOC/s3-gateware/usb2serial/usb2serial.bin</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/Adafruit_VEML6070.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/Adafruit_VEML6070.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/Bootconfig.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/Bootconfig.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/FreeRTOSConfig.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/FreeRTOSConfig.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/FreeRTOSFATConfig.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/FreeRTOSFATConfig.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/Fw_global_config.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/Fw_global_config.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/Fw_task.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/Fw_task.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/RtosTask.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/RtosTask.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/SparkFun_AS3935.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/SparkFun_AS3935.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/Wire.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/Wire.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/delay.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/delay.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/firmware_raw_image.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/firmware_raw_image.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/fpga_gpio_top_bit.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/fpga_gpio_top_bit.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/h2d_protocol.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/h2d_protocol.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/hal_fpga_gpioctrl.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/hal_fpga_gpioctrl.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/power.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/power.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/ql_hostTask.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/ql_hostTask.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/s3_host_proto_defs.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/s3_host_proto_defs.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/s3x_pwrcfg.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/s3x_pwrcfg.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/sec_debug.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/sec_debug.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/sensor_generic.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/sensor_generic.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/sensor_ssss.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/sensor_ssss.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/ssi_comms.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/ssi_comms.h</locationURI>
-		</link>
-		<link>
-			<name>App/GCC_Project/inc/ww_metadata.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/inc/ww_metadata.h</locationURI>
 		</link>
 		<link>
 			<name>App/GCC_Project/makefiles/Makefile_Audio</name>
