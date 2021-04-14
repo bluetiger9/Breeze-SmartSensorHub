@@ -83,8 +83,7 @@ bool pms_readData(void)
 
 		// Null terminate the buffer to make it a valid string, and print it
 		receiveBuffer[to_read] = 0;
-		dbg_str_int("pms7003 UART received", to_read);
-		//Log_Debug("UART received %d bytes: '%s'.\n", to_read, (char *)receiveBuffer);
+		//dbg_str_int("pms7003 UART received", to_read);
 
 		// process sensor data
 		for (int i = 0; i < to_read; ++i) {

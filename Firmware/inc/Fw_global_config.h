@@ -72,6 +72,7 @@
 //#define UART_ID_SSI  (UART_ID_USBSERIAL)
 
 #define UART_ID_PMS7003         (UART_ID_HW)
+#define UART_ID_WIFI_ESP_CLICK         (UART_ID_HW)
 
 // Toggle GPIO whenever a datablock buffer is dispatched to the UART
 // Datablocks are dispatched every (SENSOR_SSSS_LATENCY) ms. Default is 20ms or 50Hz
@@ -98,7 +99,6 @@
 #else
 extern uint32_t DBG_flags;
 #endif
-
 
 extern const char *SOFTWARE_VERSION_STR;
 

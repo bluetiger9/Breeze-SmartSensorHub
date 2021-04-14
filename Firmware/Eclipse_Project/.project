@@ -436,6 +436,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/inc/Wire.h</locationURI>
 		</link>
 		<link>
+			<name>App/inc/comm_wifi_esp_click.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/comm_wifi_esp_click.h</locationURI>
+		</link>
+		<link>
 			<name>App/inc/delay.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/inc/delay.h</locationURI>
@@ -506,6 +511,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/inc/ssi_comms.h</locationURI>
 		</link>
 		<link>
+			<name>App/inc/wifi_credentials.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/inc/wifi_credentials.h</locationURI>
+		</link>
+		<link>
 			<name>App/inc/ww_metadata.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/inc/ww_metadata.h</locationURI>
@@ -559,6 +569,11 @@
 			<name>App/src/c_lib_retarget.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/src/c_lib_retarget.c</locationURI>
+		</link>
+		<link>
+			<name>App/src/comm_wifi_esp_click.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/src/comm_wifi_esp_click.cpp</locationURI>
 		</link>
 		<link>
 			<name>App/src/delay.c</name>
@@ -641,9 +656,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/src/sml_output.c</locationURI>
 		</link>
 		<link>
-			<name>App/src/ssi_comms.c</name>
+			<name>App/src/ssi_comms.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/src/ssi_comms.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/src/ssi_comms.cpp</locationURI>
 		</link>
 		<link>
 			<name>App/src/watchdog.c</name>

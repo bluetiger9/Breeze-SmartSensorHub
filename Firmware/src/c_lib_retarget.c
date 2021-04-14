@@ -36,7 +36,7 @@ int fgetc(FILE * file)
 #ifdef DISABLE_UART_PRINTS
   return 0;
 #else  
-  return uart_rx(UART_ID_HW);
+  return uart_rx(UART_ID_SEMIHOST);
 #endif  
 }
 
@@ -45,7 +45,7 @@ int fputc(int ch, FILE * file)
 #ifdef DISABLE_UART_PRINTS
   return 0;
 #else  
-  uart_tx(UART_ID_HW,ch);
+  uart_tx(UART_ID_SEMIHOST,ch);
   return ch;
 #endif 
 }

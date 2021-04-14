@@ -138,10 +138,23 @@ int main(void)
     IO_MUX->PDM_CLKIN_SEL = 0x01;
 #endif
 
+    // power cycle modules:
+    power(AQ, false);
+    power(UV, false);
+    power(LH, false);
+    power(COM, false);
+
+    delay(3000);
+
     power(AQ, true);
     power(UV, true);
     power(LH, true);
     power(COM, true);
+
+    cs(AQ, true);
+    cs(UV, true);
+    cs(LH, true);
+    cs(COM, true);
 
     HAL_I2C_Init(i2c0config);
 

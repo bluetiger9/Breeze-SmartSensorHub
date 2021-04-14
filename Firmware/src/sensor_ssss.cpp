@@ -236,6 +236,8 @@ int  sensor_ssss_acquisition_buffer_ready()
 		dbg_str_int("pm1.0", lastPmsData.PM_SP_UG_1_0);
 		dbg_str_int("pm2.5", lastPmsData.PM_SP_UG_2_5);
 		dbg_str_int("pm10.0", lastPmsData.PM_SP_UG_10_0);
+	} else {
+	    //dbg_str("no_pms");
 	}
 
 	p_dest += 6;
