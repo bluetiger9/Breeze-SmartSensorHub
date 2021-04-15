@@ -2,6 +2,7 @@ import sys
 from sources.test import TestStreamReader, TestResultReader
 from sources.serial import SerialStreamReader, SerialResultReader
 from sources.tcpip import TCPIPStreamReader, TCPIPResultReader
+from sources.tcpipserver import TCPIPServerStreamReader, TCPIPServerResultReader
 from sources.fusion import FusionStreamReader, FusionResultReader
 
 if sys.platform not in ["win32", "darwin"]:
@@ -50,6 +51,9 @@ def get_source(config, data_source, device_id, source_type="DATA_CAPTURE", **kwa
 
         if data_source == "TCPIP":
             return TCPIPStreamReader(config, device_id, **kwargs)
+    
+        if data_source == "TCPIPSERVER":
+            return TCPIPServerStreamReader(config, device_id, **kwargs)
 
     if source_type == "RECOGNITION":
         if data_source == "BLE":
@@ -63,6 +67,9 @@ def get_source(config, data_source, device_id, source_type="DATA_CAPTURE", **kwa
 
         if data_source == "TCPIP":
             return TCPIPResultReader(config, device_id, **kwargs)
+
+        if data_source == "TCPIPSERVER":
+            return TCPIPServerResultReader(config, device_id, **kwargs)
 
     print(source_type, data_source)
     raise Exception("Invalid Data Source {}".format(data_source))

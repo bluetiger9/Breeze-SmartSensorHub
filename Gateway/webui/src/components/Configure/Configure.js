@@ -242,6 +242,11 @@ const Configure = (props) => {
                           label="TCP/IP"
                         />
                         <FormControlLabel
+                          value="TCPIPSERVER"
+                          control={<Radio />}
+                          label="TCP/IP Server"
+                        />                        
+                        <FormControlLabel
                           value="TEST"
                           control={<Radio />}
                           label="Test"
