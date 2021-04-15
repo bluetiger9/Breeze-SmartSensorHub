@@ -40,13 +40,15 @@ const Main = () => {
       setStreamingMode(data.mode);
     }
     setIsConnected(data.streaming);
-    setColumns(Object.keys(data.column_location).sort());
+    //setColumns(Object.keys(data.column_location).sort());
+    setColumns(Object.keys(data.column_location));
     setStreamingSource(data.source.toUpperCase());
     setDeviceID(data.device_id);
     setIsCameraConnected(data.camera_on);
     data.column_location =
       "column_location" in data
-        ? Object.keys(data.column_location).sort().join(", ")
+        ? Object.keys(data.column_location).join(", ")
+        //? Object.keys(data.column_location).sort().join(", ")
         : [];
 
     setConfig(data);

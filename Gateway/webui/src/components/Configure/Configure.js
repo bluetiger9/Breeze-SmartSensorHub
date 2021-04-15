@@ -129,13 +129,15 @@ const Configure = (props) => {
       props.setStreamingMode(data.mode);
     }
     props.setIsConnected(data.streaming);
-    props.setColumns(Object.keys(data.column_location).sort());
+    //props.setColumns(Object.keys(data.column_location).sort());
+    props.setColumns(Object.keys(data.column_location));
     props.setStreamingSource(data.source);
     props.setDeviceID(data.device_id);
     props.setIsCameraConnected(data.camera_on);
     data.column_location =
       "column_location" in data
-        ? Object.keys(data.column_location).sort().join(", ")
+        //? Object.keys(data.column_location).sort().join(", ")
+        ? Object.keys(data.column_location).join(", ")
         : [];
 
     props.setConfig(data);
