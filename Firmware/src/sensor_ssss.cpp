@@ -40,6 +40,8 @@
 #include "SparkFun_AS3935.h"
 #include "pms7003.h"
 
+#include "kb.h"
+
 // When enabled, GPIO (configured in pincfg_table.c) is toggled whenever a
 // datablock is dispacthed for writing to the UART. Datablocks are dispatched
 // every (SENSOR_SSSS_LATENCY) ms
@@ -98,7 +100,8 @@ const char json_string_sensor_config[] = \
 	"  \"Lightning\":4,"\
 	"  \"PM1\":5,"\
 	"  \"PM2.5\":6,"\
-	"  \"PM10\":7"\
+	"  \"PM10\":7,"\
+	"  \"EarthquakeDetect\":8"\
    "}"\
 "}\r\n";
 /* END JSON descriptor for the sensor data */
@@ -184,7 +187,7 @@ int  sensor_ssss_acquisition_buffer_ready()
 
     // Lightning
     //if(digitalRead(lightningInt) == HIGH){
-    int16_t lightning_value;
+    int16_t lightning_value = 0;
 	if (true) {
 		// Hardware has alerted us to an event, now we read the interrupt register
 		// to see exactly what it is.
@@ -241,6 +244,18 @@ int  sensor_ssss_acquisition_buffer_ready()
 	}
 
 	p_dest += 6;
+
+	/* Earthquake detection */
+	int16_t *p_earthquake_detection_data = (int16_t*) p_dest;
+
+	signed short* data = p_accel_data;
+	int retEarthquakeDetect = kb_run_model((SENSOR_DATA_T *) data, 3, KB_MODEL_window_size_2048_f1_score_rank_0_INDEX);
+	//if (retEarthquakeDetect >= 0) {
+	//    dbg_str_int("detected", retEq);
+	//}
+	*p_earthquake_detection_data = retEarthquakeDetect;
+
+	p_dest += 2;
 
     /* Read data from other sensors */
     int bytes_to_read = SENSOR_SSSS_CHANNELS_PER_SAMPLE * (SENSOR_SSSS_BIT_DEPTH/8) ;

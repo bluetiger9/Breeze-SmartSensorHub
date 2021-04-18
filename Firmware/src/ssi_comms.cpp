@@ -142,7 +142,7 @@ void ssiTaskHandler (void *pParameter) {
 
 static int downSample = 0;
 
-#define STR_MODE true
+//#define STR_MODE true
 
 void ssi_publish_sensor_data (uint8_t *p_source, int ilen) {
     if (is_ssi_connected)

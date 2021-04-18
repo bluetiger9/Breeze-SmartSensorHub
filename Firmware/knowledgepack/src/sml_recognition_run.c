@@ -2,7 +2,6 @@
 #include "kb.h"
 #include "sml_output.h"
 #include "sml_recognition_run.h"
-//#include "dcl_commands.h"
 #include "sensor_ssss.h"
 //FILL_USE_TEST_DATA
 
@@ -11,6 +10,9 @@
 int td_index = 0;
 #endif //SML_USE_TEST_DATA
 
+#ifndef SENSOR_AUDIO_ID
+#define SENSOR_AUDIO_ID              (0x4155444F)
+#endif //ifndef SENSOR_AUDIO_ID
 
 int sml_recognition_run_batch(signed short *data_batch, int batch_sz, uint8_t num_sensors, uint32_t sensor_id)
 {
@@ -37,12 +39,18 @@ int sml_recognition_run_batch(signed short *data_batch, int batch_sz, uint8_t nu
 	switch(sensor_id)
 	{
 		case SENSOR_SSSS_ID:
-					ret = kb_run_model((SENSOR_DATA_T *)data, num_sensors, KB_MODEL_slide_rank_0_INDEX);
+					ret = kb_run_model((SENSOR_DATA_T *)data, num_sensors, KB_MODEL_window_size_2048_f1_score_rank_0_INDEX);
 		if (ret >= 0){
-			sml_output_results(KB_MODEL_slide_rank_0_INDEX, ret);
+			sml_output_results(KB_MODEL_window_size_2048_f1_score_rank_0_INDEX, ret);
 			kb_reset_model(0);
 		};
+			//FILL_RUN_MODEL_CUSTOM
 			break;
+
+		case SENSOR_AUDIO_ID:
+			//FILL_RUN_MODEL_AUDIO
+			break;
+
 		default:
 			break;
 	}
@@ -71,12 +79,18 @@ int sml_recognition_run_single(signed short *data, uint32_t sensor_id)
 	switch(sensor_id)
 	{
 		case SENSOR_SSSS_ID:
-			ret = kb_run_model((SENSOR_DATA_T *)data, num_sensors, KB_MODEL_slide_rank_0_INDEX);
-			if (ret >= 0){
-				sml_output_results(KB_MODEL_slide_rank_0_INDEX, ret);
-				kb_reset_model(0);
-			};
+					ret = kb_run_model((SENSOR_DATA_T *)data, num_sensors, KB_MODEL_window_size_2048_f1_score_rank_0_INDEX);
+		if (ret >= 0){
+			sml_output_results(KB_MODEL_window_size_2048_f1_score_rank_0_INDEX, ret);
+			kb_reset_model(0);
+		};
+			//FILL_RUN_MODEL_CUSTOM
 			break;
+
+		case SENSOR_AUDIO_ID:
+			//FILL_RUN_MODEL_AUDIO
+			break;
+
 		default:
 			break;
 	}

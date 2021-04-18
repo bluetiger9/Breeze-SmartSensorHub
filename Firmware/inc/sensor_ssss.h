@@ -31,7 +31,7 @@ extern "C" {
 /* User settable MACROs and variables */
 
 #define SENSOR_SSSS_SAMPLE_RATE_HZ       (100) // sensor sample rate per channel in Hz
-#define SENSOR_SSSS_CHANNELS_PER_SAMPLE  ( 5)  // Number of channels
+#define SENSOR_SSSS_CHANNELS_PER_SAMPLE  ( 9)  // Number of channels
 #define SENSOR_SSSS_LATENCY              (20)  // process samples every 20ms
 #define SENSOR_SSSS_BIT_DEPTH            (16)  // bit-depth per sample, must be 16
 #define SENSOR_SSSS_MAX_DATA_BLOCKS      (20)  // number of data blocks to allocate
