@@ -60,6 +60,7 @@ uint8_t sensor_rate_debug_gpio_val = 1;
 
 // Accelerometer
 MC3635  qorc_ssi_accel;
+int16_t accX0, accY0, accZ0;
 
 // UV
 Adafruit_VEML6070 uv;
@@ -126,6 +127,18 @@ void sensor_ssss_configure(void)
   qorc_ssi_accel.set_sample_resolution(sensor_ssss_config.bit_depth);
   qorc_ssi_accel.set_mode(MC3635_MODE_CWAKE);
 
+  // calibrate based on the initial position
+  int32_t xx0 = 0, yy0 = 0, zz0 = 0;
+  for (int i = 0; i < 16; ++i) {
+      xyz_t accel_data = qorc_ssi_accel.read();
+      xx0 += accel_data.x;
+      yy0 += accel_data.y;
+      zz0 += accel_data.z;
+  }
+  accX0 = xx0 / 16;
+  accY0 = yy0 / 16;
+  accZ0 = zz0 / 16;
+
   // UV begin
   uv.begin(VEML6070_1_T);
 
@@ -171,9 +184,9 @@ int  sensor_ssss_acquisition_buffer_ready()
     /* Fill this accelerometer data into the current data block */
     int16_t *p_accel_data = (int16_t *)p_dest;
 
-    *p_accel_data++ = accel_data.x;
-    *p_accel_data++ = accel_data.y;
-    *p_accel_data++ = accel_data.z;
+    *p_accel_data++ = accel_data.x - accX0;
+    *p_accel_data++ = accel_data.y - accY0;
+    *p_accel_data++ = accel_data.z - accZ0;
 
     p_dest += 6; // advance datablock pointer to retrieve and store next sensor data
 
