@@ -1,1 +1,1 @@
-# QuickFeather-EnvironmentMonitor
+# Breeze: Smart Environmental Sensor Hub
