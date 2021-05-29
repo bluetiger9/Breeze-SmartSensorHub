@@ -14,32 +14,58 @@ class TCPServer():
     def __init__(self):
         print("TCP Server create")
         self.started = False
+        self.config_line = None
         pass
         
     def start(self, address, port):
         if self.started:
             print("TCP Server already started")
             return
-        
-        print("TCP Server start")
-        self.started = True
+            
         self.address = address
         self.port = port
+        
+        self.conn_accept_thread = threading.Thread(target = self.conn_accept_thread_func, args=[])
+        self.conn_accept_thread.start()
+        while self.config_line != None:
+            continue
+    
+    def conn_thread_func(self, conn, addr):
+        print("Conn handler {}".format(addr))
+        confile = conn.makefile()
+        line = ""
+        while "\n" not in line:
+            bytes = confile.read(1)
+            line = line + bytes
+            print("bytes {}".format(bytes, type(bytes)))
+        #line = confile.readline()
+        print("line {}".format(line))
+        self.conn = conn
+        self.confile = confile
+        self.config_line = line
+        
+    def conn_accept_thread_func(self):    
+        print("TCP Server start")
+        self.started = True
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print("bind {}:{}".format(self.address, self.port))
                 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
                 s.bind((self.address, self.port))
                 s.listen()
-                conn, addr = s.accept()
-                print('Connected by', addr)
-                self.conn = conn
-                self.confile = conn.makefile()
+                while True:
+                    conn, addr = s.accept()
+                    print('Connected by', addr)
+                    conn_thread = threading.Thread(target = self.conn_thread_func, args=[conn, addr])
+                    conn_thread.start()
+                    #self.conn = conn
+                    #self.confile = conn.makefile()
 
         except Exception as e:
             print(e)
             self.disconnect()
             raise e
+          
             
 tcpServer = TCPServer()
 
@@ -71,7 +97,9 @@ class TCPIPServerReader(BaseReader):
 class TCPIPServerStreamReader(TCPIPServerReader, BaseStreamReaderMixin):
     def read_device_config(self):
         print("read device config")
-        line = tcpServer.confile.readline()
+        while tcpServer.config_line is None:
+            continue
+        line = tcpServer.config_line
         print(line)
         jsonline = json.loads(line)
         print("jsonline: {}".format(jsonline))
@@ -85,6 +113,10 @@ class TCPIPServerStreamReader(TCPIPServerReader, BaseStreamReaderMixin):
                 #line = tcpServer.confile.readline()
                 data = tcpServer.conn.recv(self.source_buffer_size)
                 print("d:'{}'".format(data))
+                if b"CIPSEND" in data:
+                   print("garbage filtered out")
+                   continue
+
                 self.buffer.update_buffer(data)
                 time.sleep(0.0001)
 

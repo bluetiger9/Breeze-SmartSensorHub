@@ -9,3 +9,4 @@ numpy
 bleak
 nest_asyncio
 bluepy
+influxdb

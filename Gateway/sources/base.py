@@ -4,8 +4,11 @@ import threading
 import array
 import struct
 import time
+from datetime import datetime
 import csv
 import os
+from influxdb import InfluxDBClient
+from influxdb.client import InfluxDBClientError
 
 try:
     from sources.buffers import CircularBufferQueue, CircularResultsBufferQueue
@@ -169,6 +172,18 @@ class BaseReader(object):
             target=self._record_data, kwargs={"filename": filename}
         )
         self._record_thread.start()
+        
+    def record_start_influxdb(self):
+
+        if not self.streaming:
+            raise Exception("Must start streaming before begging to record!")
+
+        if self.recording:
+            raise Exception("Only a single recording can occur at one time")
+     
+        self.recording = True
+        self._record_thread = threading.Thread(target=self._record_data_influxdb, kwargs={})
+        self._record_thread.start()
 
     def record_stop(self, filename=None):
         if self.recording != True:
@@ -178,6 +193,9 @@ class BaseReader(object):
         self.recording = False
 
         return True
+        
+    def record_stop_influxdb(self):
+        return self.record_stop()
 
 
 class BaseStreamReaderMixin(object):
@@ -246,7 +264,49 @@ class BaseStreamReaderMixin(object):
                         )
 
         print("CSV recording thread finished")
+        
+    def _record_data_influxdb(self):
+        host = "localhost"
+        port = 8086
+        USER = 'root'
+        PASSWORD = 'root'
+        DBNAME = 'Breeze'
+        
+        client = InfluxDBClient(host, port, USER, PASSWORD, DBNAME)
 
+        struct_info = "h" * self.data_width
+        columns = sorted(self.config_columns.items(), key=lambda item: item[1])        
+        print(columns)
+        data_reader = self.read_data()
+        
+        while self.recording:
+            data = next(data_reader)
+            if data:
+                for row_index in range(len(data) // (self.data_width * 2)):
+                    buff_index = row_index * self.data_width * 2
+
+                    unpacked = struct.unpack(
+                        struct_info,
+                        data[buff_index : buff_index + self.data_width * 2],
+                    )
+                    print("row {} data {}".format(row_index, unpacked))
+                    fields = dict()
+                    for k,v in columns:
+                       #print(k, v, unpacked[v])
+                       fields[k] = unpacked[v]
+                    
+                    influxJson = [
+                        {
+                            "measurement": "breeze",
+                            "tags": {
+                                "host": "Test1",
+                            },
+                            "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"), # "2018-03-28T8:01:00Z"
+                            "fields": fields
+                        }
+                    ]
+                   
+                    client.write_points(influxJson)
 
 class BaseResultReaderMixin(object):
     def read_device_config(self):

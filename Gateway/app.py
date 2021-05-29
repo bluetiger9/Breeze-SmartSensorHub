@@ -12,6 +12,8 @@ from json import dumps
 import asyncio
 import nest_asyncio
 import time
+from influxdb import InfluxDBClient
+from influxdb.client import InfluxDBClientError
 
 nest_asyncio.apply()
 
@@ -407,6 +409,10 @@ def record_device():
     filename = form.data["filename"]
     event_type = form.data["event_type"]
 
+    influxDbRecord = False
+    if filename == "INFLUX-DB":
+        influxDbRecord = True                
+    
     if app.config["DEVICE_SOURCE"] is None:
         return make_response(
             jsonify(
@@ -425,14 +431,23 @@ def record_device():
         if app.config["DEVICE_SOURCE"].is_recording():
             return make_response(jsonify(detail="Already Recording Device"), 400)
 
-        app.config["DEVICE_SOURCE"].record_start(filename)
+
+        if influxDbRecord:
+            app.config["DEVICE_SOURCE"].record_start_influxdb()
+            
+        else:
+            app.config["DEVICE_SOURCE"].record_start(filename)
 
         return jsonify(detail="Recording Started!")
 
     if event_type == "record-stop":
 
         if app.config["DEVICE_SOURCE"].is_recording():
-            app.config["DEVICE_SOURCE"].record_stop(filename)
+            if influxDbRecord:
+                app.config["DEVICE_SOURCE"].record_stop_influxdb()
+            
+            else:
+                app.config["DEVICE_SOURCE"].record_stop(filename)
 
             return jsonify(detail="Video stopped recording")
 
