@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "dbg_uart.h"
 #include "delay.h"
+#include "power.h"
 
 WifiEspClick::WifiEspClick(int uartid) {
 	this->uartId = uartid;
@@ -32,19 +33,31 @@ bool WifiEspClick::connect() {
 	return this->connected;
 }
 
-void WifiEspClick::send(const char *str) {
-	this->send((uint8_t*) str, strlen(str));
+size_t WifiEspClick::send(const char *str) {
+	return this->send((uint8_t*) str, strlen(str));
 }
 
-void WifiEspClick::send(const uint8_t* p_source, size_t len) {
+size_t WifiEspClick::send(const uint8_t* p_source, size_t len) {
 	char command[100];
-	sprintf(command, "AT+CIPSEND=%d", len);
-	this->sendString(command);
-	this->sendString("\r\n");
-	if (this->waitString(">")) {;
-		this->sendData(p_source, len);
-		this->sendString("\r\n");
+	int llen = len;
+	while (llen > 0) {
+	    size_t toSend = llen > 400 ? 400 : llen;
+        sprintf(command, "AT+CIPSEND=%d", toSend);
+        this->sendString(command);
+        this->sendString("\r\n");
+        if (this->waitString(">")) {
+            this->sendData(p_source, toSend);
+            this->sendString("\r\n");
+            this->waitString("OK");
+            llen -= toSend;
+            p_source += toSend;
+
+        } else {
+            return 0;
+        }
+
 	}
+	return len;
 }
 
 size_t WifiEspClick::available() {
@@ -61,12 +74,13 @@ void WifiEspClick::sendString(const char *command) {
 }
 
 void WifiEspClick::sendData(const uint8_t *data, size_t len) {
-	dbg_str_int("send", len);
+	//dbg_str_int("send", len);
 	size_t cpos = 0;
 	while (cpos < len) {
 	    size_t slen = len - cpos > 4 ? 4 : len - cpos;
 	    uart_tx_raw_buf(this->uartId, data + cpos, slen);
 	    cpos += slen;
+	    //delay(1);
 	}
 
 }
@@ -76,6 +90,7 @@ bool WifiEspClick::waitString(const char *str) {
 	size_t bufPos = 0;
 	size_t length = strlen(str);
 	int steps = 0;
+	cs(AQ, true);
 	while (bufPos < 255 && steps < 25000) {
 	    steps++;
 		int av = uart_rx_available(this->uartId);
@@ -91,16 +106,18 @@ bool WifiEspClick::waitString(const char *str) {
 		bufPos += toRead;
 		buf[bufPos] = 0;
 		//dbg_str_int("wifi rcv", bufPos);
-		//dbg_str_str("dt", (const char*) buf + bufPos - toRead);
+//		dbg_str_str("dt", (const char*) buf + bufPos - toRead);
 		for (int  t = 0; t <= bufPos - length; ++t) {
 			if (strncmp((char*)(buf + t), str, length) == 0) {
 			    //dbg_str_int("wait_true", steps);
-				dbg_str_str("wt_true", str);
+//				dbg_str_str("wt_true", str);
+				cs(AQ, false);
 				return true;
 			}
 		}
 	}
 	dbg_str_str("wait_false", str);
+	cs(AQ, false);
 	return false;
 }
 

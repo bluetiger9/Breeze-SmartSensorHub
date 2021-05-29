@@ -41,6 +41,7 @@
 #include "pms7003.h"
 
 #include "kb.h"
+#include "delay.h"
 
 // When enabled, GPIO (configured in pincfg_table.c) is toggled whenever a
 // datablock is dispacthed for writing to the UART. Datablocks are dispatched
@@ -84,6 +85,8 @@ const int16_t LIGHTNING_DISTURBER = -2;
 
 DATA lastPmsData;
 
+int16_t lastEarthquakeDetection = -3;
+
 /* User modifiable sensor descriptor in JSON format */
 #if (SSI_SENSOR_SELECT_SSSS == 1)
 
@@ -126,6 +129,8 @@ void sensor_ssss_configure(void)
   qorc_ssi_accel.set_sample_rate(sensor_ssss_config.rate_hz);
   qorc_ssi_accel.set_sample_resolution(sensor_ssss_config.bit_depth);
   qorc_ssi_accel.set_mode(MC3635_MODE_CWAKE);
+
+  delay(500);
 
   // calibrate based on the initial position
   int32_t xx0 = 0, yy0 = 0, zz0 = 0;
@@ -183,6 +188,7 @@ int  sensor_ssss_acquisition_buffer_ready()
 
     /* Fill this accelerometer data into the current data block */
     int16_t *p_accel_data = (int16_t *)p_dest;
+    int16_t *p_accel_data_recog = (int16_t *)p_dest;
 
     *p_accel_data++ = accel_data.x - accX0;
     *p_accel_data++ = accel_data.y - accY0;
@@ -206,13 +212,13 @@ int  sensor_ssss_acquisition_buffer_ready()
 		// to see exactly what it is.
 		intVal = lightning.readInterruptReg();
 		if (intVal == NOISE_INT) {
-			dbg_str("Noise.");
+			//dbg_str("Noise.");
 			lightning_value = LIGHTNING_NOISE;
 			// Too much noise? Uncomment the code below, a higher number means better
 			// noise rejection.
 			//lightning.setNoiseLevel(setNoiseLevel);
 		} else if (intVal == DISTURBER_INT) {
-			dbg_str("Disturber.");
+//			dbg_str("Disturber.");
 			lightning_value = LIGHTNING_DISTURBER;
 			// Too many disturbers? Uncomment the code below, a higher number means better
 			// disturber rejection.
@@ -261,12 +267,19 @@ int  sensor_ssss_acquisition_buffer_ready()
 	/* Earthquake detection */
 	int16_t *p_earthquake_detection_data = (int16_t*) p_dest;
 
-	signed short* data = p_accel_data;
+	signed short data[3];
+	data[0] = abs(p_accel_data_recog[0]) < 100 ? p_accel_data_recog[0] / 16 : p_accel_data_recog[0];
+	data[1] = abs(p_accel_data_recog[1]) < 100 ? p_accel_data_recog[1] / 16 : p_accel_data_recog[1];
+	data[2] = abs(p_accel_data_recog[2]) < 100 ? p_accel_data_recog[2] / 16 : p_accel_data_recog[2];
+	//signed short* data = p_accel_data_recog;
 	int retEarthquakeDetect = kb_run_model((SENSOR_DATA_T *) data, 3, KB_MODEL_window_size_2048_f1_score_rank_0_INDEX);
-	//if (retEarthquakeDetect >= 0) {
-	//    dbg_str_int("detected", retEq);
-	//}
-	*p_earthquake_detection_data = retEarthquakeDetect;
+	if (retEarthquakeDetect >= 0) {
+	    dbg_str_int("detected", retEarthquakeDetect);
+	    kb_reset_model(KB_MODEL_window_size_2048_f1_score_rank_0_INDEX);
+	    lastEarthquakeDetection = retEarthquakeDetect;
+	}
+
+	*p_earthquake_detection_data = lastEarthquakeDetection;
 
 	p_dest += 2;
 
@@ -704,3 +717,4 @@ int  sensor_ssss_livestream_stop(void)
 {
   return 0;
 }
+

@@ -57,6 +57,8 @@ void pms_processData(uint8_t ch);
 
 bool pms_readData(void);
 
+void pms_resetState();
+
 //private:
 typedef enum STATUS {
 	STATUS_WAITING, STATUS_OK

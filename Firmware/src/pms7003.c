@@ -188,6 +188,10 @@ void pms_loop()
 	//}
 }
 
+void pms_resetState() {
+    _pms_index = 0;
+}
+
 void pms_processData(uint8_t ch) {
 	{
 		switch (_pms_index)

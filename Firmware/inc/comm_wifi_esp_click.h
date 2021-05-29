@@ -19,9 +19,9 @@ public:
 
 	bool connect();
 
-	void send(const char *str);
+	size_t send(const char *str);
 
-	void send(const uint8_t* p_source, size_t ilen);
+	size_t send(const uint8_t* p_source, size_t ilen);
 
 	size_t available();
 

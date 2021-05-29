@@ -50,6 +50,8 @@
 #define FEATURE_USBSERIAL   0       // USBSERIAL port is present
 #define FEATURE_FPGA_GPIO   1       // FPGA_GPIO
 
+//#define QLUART_ENABLE 1
+
 // Options for debug output -- use to set DEBUG_UART below
 // #define UART_ID_DISABLED     0   // /dev/null */
 #define UART_ID_HW           1   // the hard UART on the S3
@@ -61,6 +63,7 @@
 //#define DEBUG_UART  UART_ID_BUFFER  // Write data to USB serial port
 //#define DEBUG_UART  UART_ID_USBSERIAL
 #define DEBUG_UART  UART_ID_SEMIHOST
+//#define DEBUG_UART  UART_ID_DISABLED
 
 //#define USE_SEMIHOSTING     0       // 1 => use semihosting, 0 => use UART_ID_HW
 #define USE_SEMIHOSTING     1      // 1 => use semihosting, 0 => use UART_ID_HW

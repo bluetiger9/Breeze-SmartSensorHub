@@ -29,6 +29,10 @@
 #include "RtosTask.h"
 #include "ssi_comms.h"
 #include "comm_wifi_esp_click.h"
+#include "power.h"
+#include "delay.h"
+#include "eoss3_hal_gpio.h"
+#include "pms7003.h"
 
 #define STACK_SIZE_TASK_SSI (256)
 #define PRIORITY_TASK_SSI (PRIORITY_NORMAL)
@@ -61,21 +65,45 @@ void ssiTaskHandler (void *pParameter) {
         vTaskDelay(3000);
         if (is_ssi_connected == false)
         {
+            HAL_GPIO_Write(6, false);
             wifiEspClick.uartEnable();
             if (!wifiEspClick.ready())
             {
                 dbg_str("wifi not ready\n");
+                power(COM, false);
+                HAL_GPIO_Write(6, false);
+                HAL_GPIO_Write(5, true);
+                vTaskDelay(3000);
+                HAL_GPIO_Write(5, false);
+                power(COM, true);
                 continue;
             }
+
+            HAL_GPIO_Write(6, true);
             dbg_str("wifi ready\n");
+            vTaskDelay(500);
             bool connected = wifiEspClick.connect();
             if (connected)
             {
                 dbg_str("WIFI CONNECTED\n");
+                vTaskDelay(500);
                 //wifiEspClick.send("testtesttesttesttesttesttesttesttesttesttesttesttesttestte"\
                                 "sttesttesttesttesttesttesttesttesttest\n");
-                wifiEspClick.send(json_string_sensor_config);
+                if (wifiEspClick.send(json_string_sensor_config) == 0) {
+                    continue;
+                }
+                HAL_GPIO_Write(6, false);
+                HAL_GPIO_Write(5, true);
+
                 is_ssi_connected = true;
+
+            } else {
+                HAL_GPIO_Write(6, false);
+
+                power(COM, false);
+                vTaskDelay(3000);
+                power(COM, true);
+
             }
             wifiEspClick.uartDisable();
             //uart_tx_raw_buf(UART_ID_SSI, json_string_sensor_config, json_len);
@@ -166,6 +194,8 @@ void ssi_publish_sensor_data (uint8_t *p_source, int ilen) {
             wifiEspClick.send(p_source, ilen);
 #endif
             wifiEspClick.uartDisable();
+            pms_resetState();
+
         }
         //uart_tx_raw_buf(UART_ID_SSI, p_source, ilen);
     }
@@ -196,6 +226,7 @@ void ssi_publish_sensor_results(uint8_t* p_source, int ilen)
             wifiEspClick.send(p_source, ilen);
 #endif
             wifiEspClick.uartDisable();
+            pms_resetState();
         }
     }
 }
